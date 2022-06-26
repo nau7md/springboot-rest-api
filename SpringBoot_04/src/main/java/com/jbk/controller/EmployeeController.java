@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jbk.entity.Country;
@@ -21,6 +23,11 @@ import com.jbk.service.EmployeeService_Implementation;
 public class EmployeeController {
 	@Autowired
 	EmployeeService_Implementation service;
+
+	@RequestMapping(value = "/msg", method = RequestMethod.GET)
+	public String showMsg() {
+		return "Learning Spring Boot application";
+	}
 
 	// 1st API
 	@PostMapping("/addcountry")
